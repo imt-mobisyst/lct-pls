@@ -1,0 +1,3 @@
+[webpages]
+module = "lct-pls"
+target = "../imt-mobisyst-site"
