@@ -1,6 +1,7 @@
 # Object-Oriented Programming
 
-
+Revisit OOP concept, by presenting them in Python. 
+Tutorials are based on _MP3_ collection man.
 
 ## Object-Oriented Programing in Python
 
