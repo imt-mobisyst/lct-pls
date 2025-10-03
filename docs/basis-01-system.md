@@ -1,7 +1,7 @@
 # The basics: The computer and the program   
 
 
-## At the beginning was the Shell :
+## 1. At the beginning was the Shell :
 
 **A computer program that exposes an operating system's services to a human user or other programs.** ([Wikipedia - Sep. 2023](https://en.wikipedia.org/wiki/Shell_(computing))) (also named _a terminal_)
 
@@ -13,14 +13,16 @@
 - **Command**: an instruction received via an external interface that directs the behavior of a computer program. In other terms, a call to a program with potentially specific attributes.
 
 
-## First _BASH_ Commands.
+---
 
-[Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) is the most popular Unix/Linux shell, available by default on most Linux distribution. 
+## 2. First _BASH_ Commands.
+
+[Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) is the most popular Unix/Linux shell, available by default on most Linux distributions. 
 It is also natively supported on Apple, and versions of Bash can be installed with tools like [MinGW](https://en.wikipedia.org/wiki/MinGW) on Windows 
 
 However, most of the commands presented here exist in other Shell or have some equivalents.
 
-### The File System
+### 2.a. The File System
 
 First of all, some commands allow a user to navigate in file systems et interact with it.
 
@@ -46,7 +48,7 @@ Most of this commands manipulate paths - a description of where to find a resour
 - **CApitAl Letters maTer** - example: `cd ~/Documents` $\neq$ `cd ~/documents`
 
 
-### Mastering Commands
+### 2.b. Mastering Commands
 
 Most of the commands accept arguments and options. With a simplistic vision, the argument gives a target to the command execution, while options permit the user to change the context execution of the command. 
 
@@ -54,29 +56,31 @@ Classical syntax: `command --option -o argument` - example: `ls -a ~`
 
 Some commands permit manipulating the command collection.
 
-- __man__ - command and library manuel - example: `man cp`
-- __apropos__ - search in the manuels - example: `apropos search`
+- __man__ - command and library manual - example: `man cp`
+- __apropos__ - search in the manuals - example: `apropos search`
 - __whereis__ - find the location of a resource - example: `whereis python3`
 - __alias__ - create our own command - example: `alias listall="ls -a"`
 
-### Some triks : 
+### 2.c. Some triks : 
 
-- _tabulation_: auto-complete the command line or list the possibilities
-- _!xx_: run again the last command starting with `xx`
-- _ctrl-r_: search for a command in command history
-- _Q_: quit a runnig program (in most programs)
-- _ctr-c_: terminate a running program
-- _~/.bashrc_: file: user configuration routine
+- __tabulation__: auto-complete the command line or list the possibilities.
+- __!xx__: run again the last command starting with `xx`.
+- __ctrl-r__: search for a command in command history.
+- __Q__: quit a running program (in most programs).
+- __ctr-c__: terminate a running program.
+- __~/.bashrc__: file: user configuration routine.
 
 
-## Users session
+---
+
+## 3. Users session
 
 On Linux, users are clearly identified everywhere.
 All resources have owners, and users can be limited in their capacities on the system.
 Users can be artificially set, they are not necessarily real human beings.
 
 
-### session
+### 3.a. session
 
 A session is an active connection to a system or program.
 
@@ -84,8 +88,8 @@ A session is an active connection to a system or program.
 - __su__ : start a new session as a specific user - example: `su bob`
 - __ssh__ - open a session in a distant computer following the ssh protocol
 
-A user session is associate to an environement.
-computer system or set of systems in which a computer program or software component is deployed and executed ([Wikipedia Sept. 2023](https://en.wikipedia.org/wiki/Deployment_environment)).
+A user session is associated with an environment.
+I.e. a computer system or set of systems in which a computer program or software component is deployed and executed ([Wikipedia Sept. 2023](https://en.wikipedia.org/wiki/Deployment_environment)).
 
 - __env__ - list the environment variable.
 - __$__ - access a variable - example: `echo $PATH`
@@ -95,7 +99,7 @@ computer system or set of systems in which a computer program or software compon
 - __export__ - create a new variable - example: `export MYBIN=~/bin`
 - __~/.bashrc__ (file): user configuration commands.
 
-### User, Group and Rules
+### 3.b. User, Group and Rules
 
 _Users_ are structured with _groups_.
 Users as groups have a name and a number
@@ -121,14 +125,16 @@ Manipulate the owner and authorizations:
 - __sudo__ : excute a command as a _root_ user (administrator) if granted - example `sudo gedit /etc/passwd`.
 
 
-## The Processes
+---
+
+## 4. The Processes
 
 Finally, the Operating System (OS) is mainly a process manager...
 An OS offers an environment to create and execute programs.
 Typically, the language _C_ is first developed in parallel to _Unix_ to provide a powerful language to the OS, and to use it for the _OS_ core processes.
 
 Today, systems have evolved significantly and allow complex architecture with several processes running in parallel and potentially in virtual machines.
-Similarly than _ls_, __ps__ list the local processes (ie. the children processes of the bash shell. 
+Similarly to _ls_, __ps__ list the local processes (ie. the children processes of the bash shell). 
 For instance: 
 
 ```shell
@@ -155,12 +161,14 @@ Other command :
 file: hello.py
 
 
-## Python Programming Languages
+---
+
+## 5. Python Programming Languages
 
 Python is a high level programming language. 
-Its allows for abstracted data structures, includes core tools like _dynamic type_, _garbage collector_, _Object-Oriented Programming_ (OOP) and a lot more with a large collection of libraries.
+Its allows for abstracted data structures, includes core tools like _dynamic type_, _garbage colector_, _Object-Oriented Programming_ (OOP) and a lot more with a large collection of libraries.
 
-The language is interpreted, and _python3_ designs the programming language but also the interpreter process ([cpython](https://fr.wikipedia.org/wiki/CPython)), allowing to read and execute _Python_ instructions.
+The language is interpreted, and _python3_ designs the programming language but also the interpreter process ([cpython](https://fr.wikipedia.org/wiki/CPython)), allowing reading and executing _Python_ instructions.
 
 - Code source on [github.com](https://github.com/python/cpython) - 63.5% Python / 34.6% C 
 
@@ -183,7 +191,7 @@ Python in short:
 - **Not natively efficient** (but compatible with C and C++ libs)
 
 
-### Sequential Instructions
+### 4.a Sequential Instructions
 
 _Python_ is structured with sequential instructions:
 
@@ -220,7 +228,7 @@ _To notice:_
 - Functions need to be defined prior to be used.
 
 
-### loop control
+### 4.b loop control
 
 Loops allow for repeating an instruction sequence until a specific state is reached (_while_) or by visiting a collection of objects (_for_).
 The _while_ instruction (_WHILE condition DO something_) is the simplest available loop control:
@@ -233,7 +241,7 @@ while b <= 40 :
 print( "Result: " + str(b) )
 ```
 
-The _for_ instruction allows for visiting each element of an iterable collection, for instance a list.
+The _for_ instruction allows for visiting each element of an iterable collection, for instance, a list.
 
 ```python
 aList= [2, 10, 18, 4, 8]
@@ -245,7 +253,7 @@ print( "Result: " + str(b) )
 ```
 
 
-### Going further...
+### 4.c Going further...
 
 It is not the purpose here, to provide an entire course on _Python_. 
 There are huge resources on the internet, both more complete and well organized, starting with the official _Python_ documentation [https://docs.python.org/3/](https://docs.python.org/3/).
