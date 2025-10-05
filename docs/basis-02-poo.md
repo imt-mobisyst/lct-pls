@@ -8,7 +8,7 @@ All the proposed pieces of code should be tested in a `script.py`.
 
 ## 1. Object-Oriented Programming (OOP) in Python
 
-
+Playing with class, and the main concepts of OOP in _Python_.
 
 ### 1.a. Structuring element together
 
@@ -30,8 +30,8 @@ hello= MyObjectType.function1()
 print( hello + ' ' + MyObjectType.function2() )
 ```
 
-To notice the indentations that state for wath inside a class and the instructions of each class's function.
-In this exemple, _MyObjectType_ is a class with one attribut (_world_) and two functions (_function1()_, _function2()_).
+To notice the indentations that state what is inside a class with a new level of indentation for instructions of the class's function.
+In this example, _MyObjectType_ is a class with one attribute (_world_) and two functions (_function1()_, _function2()_).
 
 ### 1.b. Class Instance
 
@@ -61,7 +61,7 @@ At this point, `anInstance.class_word` is `MyObjectType.class_word`,
 and for no confusion, you should use `MyObjectType.class_word` to manipulate this attribut.
 
 Another good way to manipulate a class attribute: `type(anInstance).classAttribut`.
-Typically, nasty manipulation of class-attribut can transform them into instance attributes for specific instances that generate failure, difficult to debug...
+Typically, nasty manipulation of class-attributes can transform them into instance attributes for specific instances that generate failure, difficult to debug...
 As in this example :
 
 ```python
@@ -165,8 +165,8 @@ anInstance= MyObjectType()
 print( anInstance )
 ```
 
-To notice that it is posible to change the number of parameters in `__init__` to generate a constructor over parrameters.
-In general, all the instance attributs are created in the `__init__` method. But it is not mandatory (in fact in python, the number and definition of instance attributes are dynamic). 
+To notice that it is possible to change the number of parameters in `__init__` to generate a constructor over parameters.
+In general, all the instance attributes are created in the `__init__` method. But it is not mandatory (in fact, in Python, the number and definition of instance attributes are dynamic). 
 It is also possible to call the parent method when overriding with [`super`](https://docs.python.org/3/library/functions.html#super).
 
 
@@ -212,7 +212,6 @@ As we already see, several rules are more good practices than language constrain
 
 Most of those conventions are presented in the [style guide for Python code](https://peps.python.org/pep-0008/)
 
-
 ### 2.c.  Operators. 
 
 Finally, most of the operator can be redefined based on built-in function.
@@ -248,13 +247,119 @@ We  now have an idea of what _OOP_ is capable of in _Python_.
 The exercise here is to put those notions in music.
 
 
-### Read a Mp3 sound
+### 3.a Read a Mp3 sound
 
-- https://pypi.org/project/playsound3/
-- https://eyed3.readthedocs.io/en/latest - https://pypi.org/project/eyeD3/
+As a first exercie we want a class representing a song. 
+First, an exploration on internet showed us the librairie: [playsound3](https://pypi.org/project/playsound3) allowing us for play _mp3_ music.
+
+This example loads a music song and play it :
+
+```python
+import time 
+from playsound3 import playsound
+
+# You can play sounds in the background
+sound = playsound("./song.mp3", block=False)
+
+# and check if they are still playing
+if sound.is_alive() :
+    print("Sound is playing!")
+    time.sleep( 5.0 )
+
+# and stop them whenever you like.
+sound.stop()
+```
+
+So as a first result, we aim to have a class (_Song_ for instance) with methods to load a music file and to play it.
+
+Something like this: 
+
+```python
+class song :
+   # To implement ... 
+
+asong= Song()
+asong.load("./song.mp3")
+aSound.play()
+```
+
+### 3.b Accessor
+
+Our _Song_ class defines a few attributes for an instance: a title, an artist name, an album name, and the number of tracks in the album. First, we want a constructor that defines all of these attributes. Then we ask for an accessor method for each of these attributes.
+
+```python
+class song :
+   # To implement ... 
+
+asong= Song("Rodriguez", "Can't Get Away", "Searching for Sugar Man",  7 )
+asong.load("./song.mp3")
+print( f"{asong.artist()} - {asong.album()} {asong.track()} - {asong.title()}" )
+asound.play()
+```
+
+In fact, we will prefer to get metadata from the file directly when loading it.
+To do that we can count on [eyeD3](https://pypi.org/project/eyeD3) _Python_ library ([documentation](https://eyed3.readthedocs.io/en/latest)).
+
+Here's a piece of code to help in this mission: 
+
+```python
+import eyed3
+
+audiofile = eyed3.load("song.mp3")
+print( audiofile.tag.artist )
+print( audiofile.tag.album )
+print( audiofile.tag.album_artist )
+print( audiofile.tag.title )
+print( audiofile.tag.track_num.count)
+```
+
+It is also possible to define default parameter values in the `__init__` method to be capable of instantiating a new song without metadata.
+To learn how to do that, let's go on internet.
+For instance, the [w3schools]( is an excellent entrance point regarding web technologies and presents, among others, the notion of [function default parameter](https://www.w3schools.com/python/gloss_python_function_default_parameter.asp), with a sandbox...
 
 
-### Manipulating Meta-data
+
+### 3.c Some commands
+
+You should now have a first skeleton of the application we want to create.
+However, in fact, the goal is to create several commands. So the best way to do that in a first move, is to create several _Python_ files. A first _Python_ file will implement our _Song_ class with all the required functionality as methods of the class. Then we add a _Python_ file for each command we want to implement. 
+
+In your directory you should have :
+
+```sh
+songpkg.py   # With the Song class
+command1.py
+command2.py
+command3.py
+...
+```
+
+The command script should be as small as possible.
+All the important code is in `songpkg.py`, and imported in your command file.
+
+For instance, the `play.py` command will look like 
+
+```python
+import songpkg
+
+asong= songpkg.Song()
+asong.load("./song.mp3")
+print( f"{asong.artist()} - {asong.album()} {asong.track()} - {asong.title()}" )
+asound.play()
+```
+
+The expected command: 
+
+- `play.py` : Takes a file name of a song as an argument and print the metadata of that song  before playing the song.
+- `set.py` : Takes a file name of a song and all metadata as command arguments and save the file with those metadata.
+- `playlist.py` : Takes a playlist as an argument (a text file, with a list of MP3 files to play) and plays it.
+- `search.py` : Takes an artist name, a search all the local MP3 files matching that artist.
+- `rename.py` :  search all MP3 recursively in a directory, and rename them as `artist - album track - title.mp3`.
+
+To do that, you will certainly requires _os_ _Python_ modul (again on [w3schools](https://www.w3schools.com/python/module_os.asp)) and more specifically, the `os.listdir()` returning a list of the names of the entries in a directory.
+
+
+
 
 
 <!---
@@ -436,3 +541,4 @@ assert( aCloud.point(0) == (3,8) )
 - ... 
 
 <br />
+

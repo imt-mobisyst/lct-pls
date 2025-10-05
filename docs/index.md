@@ -1,4 +1,6 @@
-# Lecture: Python Libs pour la Science
+# Lecture: Python Libs for Sciences
+
+
 
 
 
