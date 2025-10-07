@@ -10,6 +10,7 @@ nav:
     - Develloper tools : 'dev-02-tools.md'
     - Packaging:      'dev-01-pack.md'
     - Integration:    'dev-03-integ.md'
+  - '': 'resources'
 
 markdown_extensions:
   - attr_list

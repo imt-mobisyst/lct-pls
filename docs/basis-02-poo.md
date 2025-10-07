@@ -187,14 +187,14 @@ class MyObjectType :
 class ObjectSpecific(MyObjectType) :
     
     def __init__(self, aNumber):
-        super(MyObjectType, self)._init__(self)
+        super(MyObjectType, self).__init__()
         self._aNumber= aNumber
         
     def __str__(self):
         return f"> MyObjectType::instance-{self._aNumber} <"
 
 # Use:
-anInstance= MyObjectType(42)
+anInstance= ObjectSpecific(42)
 print( anInstance )
 ```
 
@@ -282,6 +282,8 @@ asong= Song()
 asong.load("./song.mp3")
 aSound.play()
 ```
+
+- The song file : [here](./resources/song.mp3)
 
 ### 3.b Accessor
 

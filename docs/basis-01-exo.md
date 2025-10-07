@@ -12,20 +12,6 @@ Always process in an incremental way:
 
 
 ### Initialize your project:
-# System and Python Basis - Exercises
-
-## 1. Exercise: Search for a User's Groups
-
-Create a script returning the names (print) of all groups associated with the user.
-
-Always process in an incremental way:
-
-- Decompose the module to develop
-- Implement it step by step
-- Test the solution at each step
-
-
-### Initialize your project:
 
 - Make a new directory : `python-data-science` for instance.
 - Edit a new Python file: `search-group.py` with *gedit* for instance.
@@ -42,8 +28,8 @@ I do not know how to open a file ? search the web... [w3schools](https://www.w3s
 
 ### Search for a specific word (user name) in a lines
 
-- Detect for `bob` user in lines
-- Print only lines with `bob` inside
+- Detect for `instald` user in lines
+- Print only lines with `instald` inside
 
 There is a lot of string methods in Python (for instance, still in [W3School](https://www.w3schools.com/python/python_strings_methods.asp))
 and one of them seems very interesting: `find()`.

@@ -205,7 +205,7 @@ aString= "Hello"  # - Assignment of a new string variable (list of characters)
 
 print( aString )  # - Call to the function print with aString as one parameter
 
-result= aString.search('e') # - Call to the method search on the aString instance 
+result= aString.find('e') # - Call to the method search on the aString instance 
                             #   with a parameter 'e'
 ```
 

@@ -1,14 +1,13 @@
-import time, eyed3
+import time 
+from playsound3 import playsound
 
-audiofile = eyed3.load("song.mp3")
-print( audiofile.tag.artist )
-print( audiofile.tag.album )
-print( audiofile.tag.album_artist )
-print( audiofile.tag.title )
-print( audiofile.tag.track_num.count)
+# You can play sounds in the background
+sound = playsound("./mp3/01-nonpoint-in_the_air_tonight.mp3", block=False)
 
-#Import os Library
-import os
+# and check if they are still playing
+if sound.is_alive() :
+    print("Sound is playing!")
+    time.sleep( 5.0 )
 
-#print all entries in current directory
-print (os.listdir())
+# and stop them whenever you like.
+sound.stop()
