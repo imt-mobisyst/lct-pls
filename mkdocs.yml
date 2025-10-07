@@ -7,6 +7,7 @@ nav:
     - First exos:     'basis-01-exo.md'
     - Object-Oriented Prog.: 'basis-02-poo.md'
   - Good practice:
+    - Graphic Interlude: 'dev-00-cairo.md'
     - Develloper tools : 'dev-02-tools.md'
     - Packaging:      'dev-01-pack.md'
     - Integration:    'dev-03-integ.md'
