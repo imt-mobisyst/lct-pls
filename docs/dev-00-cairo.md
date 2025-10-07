@@ -1,13 +1,14 @@
 # Graphic Interlude with Cairo
 
-This tutorial is a short parenthesis to present [cairo](https://cairographics.org) one of the numerous librairy allowing drawing.
-_Cairo_ is a librairy written in _C_, dedicated to vectorial 2D drawing.
+This tutorial is a short parenthesis to present [cairo](https://cairographics.org) one of the numerous libraries allowing drawing.
+_Cairo_ is a library written in _C_, dedicated to vectorial 2D drawing.
+As with all _C_ libraries, it is simple to port _Cairo_ to other programming languages and to _Python_ in particular.
 
 
 ## 1. Get started: 
 
-In follow, a simple example drawing a line, a rectangle. a triangle and a circle.
-The _cairo_ python package can be installed with _pip_  (`pip install pycairo`).
+In follow, a simple example is drawing a line, a rectangle. a triangle and a circle.
+The _Cairo Python_ package can be installed with _pip_  (`pip install pycairo`).
 
 
 ```python 
@@ -56,16 +57,16 @@ context.stroke()
 canvas.write_to_png( filePath )
 ```
 
-Notice the particular syntaxe. 
-First you move your pencil on a surfasse, then you fill and/or stroke the shape you drawing.
-Filling or stroking also erase the pencil movement execpt if you use preserve functions.
+Notice the particular syntax. 
+First you move your context (a kind of pencil) on a surface, then you fill and/or stroke the shape you drawn.
+Filling or stroking also erases the 'pencil' movement, except if you use preserve functions.
 
 
 ## 2. Ressource: 
 
-- pip page: [pypi.org/project/pycairo](https://pypi.org/project/pycairo/)
-- official page: [cairographics.org](https://cairographics.org)
-- Python tutorial: [on tortall.net](https://www.tortall.net/mu/wiki/CairoTutorial)
+- _Pip_ page: [pypi.org/project/pycairo](https://pypi.org/project/pycairo/)
+- Official page: [cairographics.org](https://cairographics.org)
+- _Python_ tutorial: [on tortall.net](https://www.tortall.net/mu/wiki/CairoTutorial)
 
 ## 3. Play with it:
 
