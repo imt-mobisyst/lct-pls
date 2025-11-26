@@ -217,7 +217,7 @@ def test_defaultCamera():
 def test_defaultTransform():
     camera= scene2d.Camera()
     assert camera.pixel(0.0, 0.0) == (300, 200)
-    assert camera.pixel(0.0, 0.0) == (310, 190)
+    assert camera.pixel(1.0, 1.0) == (310, 190)
 ```
 
 At this point, `pytest -x` should fail.

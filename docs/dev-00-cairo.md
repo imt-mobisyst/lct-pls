@@ -48,7 +48,7 @@ context.close_path()
 context.set_source_rgb( 0, 0.1 , 0.8 )
 context.fill()
 
-# A triangle :
+# A Circle :
 context.arc(450, 150, 20, 0, 2.0*math.pi)
 
 context.set_source_rgb( 0.8, 0.1 , 0 )
